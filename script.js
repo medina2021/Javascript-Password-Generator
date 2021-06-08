@@ -3,12 +3,13 @@ var generateBtn = document.querySelector("#generate");
 
 
 // Character Options
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 var numbers = "0123456789";
 
-var emptyArr = [];
+var passwrdArr = []
+var userChoice = []
 
 
 // Adding Password to #password input
@@ -27,7 +28,7 @@ if (isNaN(passwordLength)){
     return passwordGenerator();
   } else if (passwordLength >=8 && passwordLength <=128){
     alert("The following 3 screens will let you choose the type of characters that will be in your password. If you enter 'No' for all 3, the password will be generated with all lowercase letters");
-    determineupper ();
+    determineUpper ();
   } else {
       alert("Password length must be a number between 8-128 characters long");
     passwordGenerator();
@@ -35,15 +36,17 @@ if (isNaN(passwordLength)){
 }
 
 // Function to select Uppercase Characters
-function determineUpper () {
-  var upperchoice = confirm("Do you want password to include uppercase letters, Yes or No?");
-if (upperchoice){
-// we need to add upper characters to empty array
-// we need to have an else statement in this function
-// 2 return statements to end function properly
+function determineUpper(){
+  var upperChoice = window.confirm("Do you want password to include uppercase letters, Yes or No?");
+if (upperChoice === true) {
+  userChoice = userChoice.concat(upperCase);
+  passwrdArr.push(upperCase[Math.floor(Math.random()*upperCase.length)]);
+}
+}
 
-}
-}
+
+// we need to add upper characters to empty array
+// 2 return statements to end function properly
 
 
 
@@ -60,4 +63,5 @@ if (upperchoice){
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 
