@@ -20,7 +20,6 @@ if (isNaN(passwordLength)){
     alert("Password length must be a number between 8-128 characters long");
     return passwordGenerator();
   } else if (passwordLength >=8 && passwordLength <=128){
-    alert("The following 3 screens will let you choose the type of characters that will be in your password. If you enter 'No' for all 3, the password will be generated with all lowercase letters");
     password = charChoice();
   } else {
       alert("Password length must be a number between 8-128 characters long");
@@ -53,11 +52,12 @@ if (upperChoice === true) {
 var specialChoice = window.confirm("Do you want password to include special characters, Yes or No?")
   if(specialChoice == true){
     userChoice = userChoice.concat(specialChar);
-    passwrdArr.push(specialChar[Math.floor(Math.random()*specialChar.length)]);
+    passwrdArr.push(specialChar[Math.floor(Math.random() * specialChar.length)]);
   }
- 
+
+// function to generate complete random password
 var completePass = ""
-for(f = 0; f < passwordLength; f++){
+for(var i = 0; i < passwordLength; i++){
   completePass = completePass + passwrdArr[Math.floor(Math.random() * passwrdArr.length)]
 }
 
